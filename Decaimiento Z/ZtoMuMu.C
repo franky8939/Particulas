@@ -18,7 +18,7 @@ void ZtoMuMu_Delphes(const char *inputFile)
 {
   gSystem->Load("libDelphes");
 
-  // Create chain of root trees
+  // Create chain of root trees 
   TChain chain("Delphes");
   chain.Add(inputFile);
 
