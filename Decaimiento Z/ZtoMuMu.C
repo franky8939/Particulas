@@ -14,11 +14,11 @@ R__LOAD_LIBRARY(libDelphes.so)
 
 //------------------------------------------------------------------------------
 
-void ZtoMuMu_Delphes(const char *inputFile)
+void ZtoMuMu(const char *inputFile)
 {
   gSystem->Load("libDelphes");
 
-  // Create chain of root trees 
+  // Create chain of root trees
   TChain chain("Delphes");
   chain.Add(inputFile);
 
@@ -29,9 +29,9 @@ void ZtoMuMu_Delphes(const char *inputFile)
   TClonesArray *branchMuon = treeReader->UseBranch("Muon");
 
   // Book histograms
-  TH1 *histMass = new TH1F("mass", "M_{inv}(#mu_{1}, #Mu_{2})", 50, 80.0, 100.0);
-  TH1 *histPT1 = new TH1F("pt1", "PT(#mu_{1})", 50, 10.0, 80.0);
-  TH1 *histPT2 = new TH1F("pt2", "PT(#Mu_{2})", 50, 10.0, 60.0);
+  TH1 *histMass = new TH1F("Masa invariante", "M_{inv}(#mu_{1}, #mu_{2})", 50, 80.0, 100.0);
+  TH1 *histPT1 = new TH1F("mom. transv. 1", "P_T(#mu_{1})", 50, 10.0, 80.0);
+  TH1 *histPT2 = new TH1F("mom. transv. 2", "P_T(#mu_{2})", 50, 10.0, 60.0);
   // Loop over all events
   for(Int_t entry = 0; entry < numberOfEntries; ++entry)
   {
@@ -56,15 +56,35 @@ void ZtoMuMu_Delphes(const char *inputFile)
   }
 
   // Show resulting histograms
-  TCanvas *c1 = new TCanvas("MASAA","MASA");
+  TCanvas *c1 = new TCanvas("c1","c1");
+  histMass->GetXaxis()->SetTitle("Mass [GeV]");
+  histMass->GetYaxis()->SetTitle("Frecuencias");
+  histMass->GetXaxis()->SetLabelSize(.05);
+  histMass->GetYaxis()->SetLabelSize(.05);
+  histMass->GetXaxis()->SetTitleSize(.05);
+  histMass->GetYaxis()->SetTitleSize(.05);
   histMass->Draw();
+
   c1 -> SaveAs("mass.png");
 
   TCanvas *c2 = new TCanvas("c2", "c2");
+  histPT1->GetXaxis()->SetTitle("Mass [GeV]");
+  histPT1->GetYaxis()->SetTitle("Frecuencias");
+  histPT1->GetXaxis()->SetLabelSize(.05);
+  histPT1->GetYaxis()->SetLabelSize(.05);
+  histPT1->GetXaxis()->SetTitleSize(.05);
+  histPT1->GetYaxis()->SetTitleSize(.05);
   histPT1 ->Draw();
   c2 -> SaveAs("pt1.png");
   
   TCanvas *c3 = new TCanvas("c3", "c3");
+  histPT2->GetXaxis()->SetTitle("Mass [GeV]");
+  histPT2->GetYaxis()->SetTitle("Frecuencias");
+  histPT2->GetXaxis()->SetLabelSize(.05);
+  histPT2->GetYaxis()->SetLabelSize(.05);
+  histPT2->GetXaxis()->SetTitleSize(.05);
+  histPT2->GetYaxis()->SetTitleSize(.05);
+  histPT2->Draw();
   histPT2 ->Draw();
   c3 -> SaveAs("pt2.png");
 }
