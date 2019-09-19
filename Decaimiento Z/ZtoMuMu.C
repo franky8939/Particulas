@@ -56,17 +56,22 @@ void ZtoMuMu(const char *inputFile)
   }
 
   // Show resulting histograms
+  TFile *f=new TFile("mass.root","recreate");
   TCanvas *c1 = new TCanvas("c1","c1");
+  
   histMass->GetXaxis()->SetTitle("Mass [GeV]");
   histMass->GetYaxis()->SetTitle("Frecuencias");
   histMass->GetXaxis()->SetLabelSize(.05);
   histMass->GetYaxis()->SetLabelSize(.05);
   histMass->GetXaxis()->SetTitleSize(.05);
   histMass->GetYaxis()->SetTitleSize(.05);
+  
   histMass->Draw();
+  histMass->Write();
+  f->Close();
 
   c1 -> SaveAs("mass.png");
-
+  
   TCanvas *c2 = new TCanvas("c2", "c2");
   histPT1->GetXaxis()->SetTitle("Mass [GeV]");
   histPT1->GetYaxis()->SetTitle("Frecuencias");
@@ -87,6 +92,9 @@ void ZtoMuMu(const char *inputFile)
   histPT2->Draw();
   histPT2 ->Draw();
   c3 -> SaveAs("pt2.png");
+
+
+ 
 }
 
 
