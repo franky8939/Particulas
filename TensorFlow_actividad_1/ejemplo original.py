@@ -77,10 +77,10 @@ sess.run(init)
 
 cost_summary = tf.summary.scalar("cost",cross_entropy)
 acc_summary = tf.summary.scalar("accuracy",accuracy)
-# Merge all summaries
+# Merge all summaries 
 all_summary = tf.summary.merge_all()
 # Summary writer
-writer = tf.summary.FileWriter("C:/Users/Alfredo/Downloads/ML2", sess.graph)
+#writer = tf.summary.FileWriter("C:/Users/franky/Downloads/", sess.graph)
 
 # train on mini batches
 for i in range(n_iterations):
@@ -88,11 +88,15 @@ for i in range(n_iterations):
     sess.run(train_step, feed_dict={X: batch_x, Y: batch_y, keep_prob:dropout})
 
     # print loss and accuracy (per minibatch)
-    if i%100==0:
-        summary_results,minibatch_loss, minibatch_accuracy = sess.run([all_summary, cross_entropy, accuracy], feed_dict={X: batch_x, Y: batch_y, keep_prob:1.0})
-        print("Iteration", str(i), "\t| Loss =", str(minibatch_loss), "\t| Accuracy =", str(minibatch_accuracy))
+    #if i%100==0:
+    #    summary_results,minibatch_loss, minibatch_accuracy = sess.run([all_summary, cross_entropy, accuracy], feed_dict={X: batch_x, Y: batch_y, keep_prob:1.0})
+    #    print("Iteration", str(i), "\t| Loss =", str(minibatch_loss), "\t| Accuracy =", str(minibatch_accuracy))
         
         writer.add_summary(summary_results,i)
         
 test_accuracy = sess.run(accuracy, feed_dict={X: mnist.test.images, Y: mnist.test.labels, keep_prob:1.0})
 print("\nAccuracy on test set:", test_accuracy)
+
+
+
+
