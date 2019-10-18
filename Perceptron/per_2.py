@@ -1,0 +1,6 @@
+
+
+def perceptron():
+    
+    
+    return

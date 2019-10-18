@@ -1,0 +1,105 @@
+**********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a0           5.00000e+02  1.00000e+02    0.00000e+00  1.00000e+03
+     2 coe_bw       1.00000e+00  1.00000e-01    0.00000e+00  1.00000e+00
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE2 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE2 BROUGHT BACK INSIDE LIMITS.
+     3 m0           9.00000e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 width        3.00000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        2000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE2 IS AT ITS UPPER ALLOWED LIMIT.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=1681.66 FROM MIGRAD    STATUS=INITIATE       45 CALLS          46 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a0           9.98138e+02   1.00000e+02   0.00000e+00   6.67828e-08
+   2  coe_bw       9.31311e-01   1.00000e-01  -5.28412e-01   4.84547e+00
+   3  m0           9.00000e+01   2.00000e+00   0.00000e+00  -7.72494e+02
+   4  width        3.00000e+00   1.00000e+00   0.00000e+00  -1.27438e+02
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ MINUIT WARNING IN HESSE   
+ ============== Negative diagonal element 1 in Error Matrix
+ MINUIT WARNING IN HESSE   
+ ============== 1 added to diagonal of error matrix
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=1639.12 FROM MIGRAD    STATUS=CONVERGED     121 CALLS         122 TOTAL
+                     EDM=0.000126872    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a0           9.99975e+02   2.29837e+02   5.00000e-01  -2.27374e-13
+   2  coe_bw       9.99999e-01   1.02644e-02   5.69206e-03  -4.12429e-02
+   3  m0           9.07868e+01   1.08834e-01   3.05991e-04   4.18517e-01
+   4  width        4.05305e+00   2.36423e-01   1.35867e-03  -1.24586e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  4    ERR DEF=0.5
+  2.463e+01  8.540e-13  8.134e-14 -2.341e-12 
+  8.540e-13  3.235e-08  3.081e-09 -8.868e-08 
+  8.134e-14  3.081e-09  1.185e-02 -5.432e-05 
+ -2.341e-12 -8.868e-08 -5.432e-05  5.594e-02 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4
+        1  0.00000   1.000  0.000  0.000 -0.000
+        2  0.00209   0.000  1.000  0.000 -0.002
+        3  0.00212   0.000  0.000  1.000 -0.002
+        4  0.00297  -0.000 -0.002 -0.002  1.000
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        2000
+ **********
+ MINUIT WARNING IN HESSE   
+ ============== Negative diagonal element 1 in Error Matrix
+ MINUIT WARNING IN HESSE   
+ ============== 1 added to diagonal of error matrix
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=1639.12 FROM HESSE     STATUS=OK             23 CALLS         145 TOTAL
+                     EDM=0.000127368    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a0           9.99975e+02   2.29837e+02   5.00000e-01   1.58072e+00
+   2  coe_bw       9.99999e-01   1.02651e-02   1.13841e-03   1.56902e+00
+   3  m0           9.07868e+01   1.08834e-01   6.11981e-05   7.87610e-02
+   4  width        4.05305e+00   2.36424e-01   2.71735e-04  -1.90541e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  4    ERR DEF=0.5
+  2.463e+01 -1.013e-12 -4.371e-11 -2.862e-12 
+ -1.013e-12  3.235e-08 -3.452e-09  9.955e-08 
+ -4.371e-11 -3.452e-09  1.185e-02 -6.927e-05 
+ -2.862e-12  9.955e-08 -6.927e-05  5.594e-02 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4
+        1  0.00000   1.000 -0.000 -0.000 -0.000
+        2  0.00235  -0.000  1.000 -0.000  0.002
+        3  0.00270  -0.000 -0.000  1.000 -0.003
+        4  0.00357  -0.000  0.002 -0.003  1.000
